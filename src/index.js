@@ -1,38 +1,41 @@
-import { DotcomShell } from "@carbon/ibmdotcom-vanilla";
-import '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss';
+console.log('loaded');
+
+import { DotcomShell } from '@carbon/ibmdotcom-vanilla';
+import '@carbon/ibmdotcom-styles';
+import Vue from 'vue';
+import App from './App';
 
 const dotcomShellProps = {
-  masthead: {
-    navigation: "default",
-    platform: {
-      name: "IBM Cloud",
-      url: "https://www.ibm.com/cloud"
+    masthead: {
+      navigation: "default",
+      platform: {
+        name: "IBM Cloud",
+        url: "https://www.ibm.com/cloud",
+      },
+      searchProps: {
+        hasSearch: true,
+      },
+      hasNavigation: true,
+      hasProfile: true,
     },
-    searchProps: {
-      hasSearch: false
-    }
-  },
-  footer: {
-    footerType: "short"
-  }
-};
+    footer: {
+      footerType: "short",
+    },
+  };
 
 const content = `
-    <h1>Hello Vanilla!</h1>
-    <div>
-    We use Parcel to bundle this sandbox, you can find more info about Parcel
-    <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-    </div>
-`;
+    <div id="vueApp">Render vue here</div>
+`
 
-async function _loadDotcomShell() {
-  const template = await DotcomShell.getDotcomShellWithData({
-    content,
-    ...dotcomShellProps
-  });
-  const yourapp = document.getElementById("app");
+async function init(){
+  const template = await DotcomShell.getDotcomShellWithData({content, ...dotcomShellProps});
+  const yourapp = document.getElementById('app');
   yourapp.innerHTML = template;
   DotcomShell.init(yourapp);
 }
 
-_loadDotcomShell();
+init().then(() => {
+    console.log('initializing vue')
+    
+    new Vue(App).$mount('#vueApp')
+});

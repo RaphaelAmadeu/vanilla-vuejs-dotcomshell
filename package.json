@@ -1,19 +1,24 @@
 {
-  "name": "ibmdotcom-vanilla-test",
+  "name": "mast-test",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "parcel build index.html",
-    "start": "parcel serve -p 9000 index.html"
+    "start": "parcel serve index.html --port 8000"
   },
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@carbon/ibmdotcom-styles": "^1.5.1",
     "@carbon/ibmdotcom-vanilla": "^0.5.1",
-    "carbon-components": "^10.10.3"
+    "carbon-components": "^10.10.3",
+    "parcel-bundler": "^1.12.4",
+    "vue": "^2.6.11",
+    "vue-hot-reload-api": "^2.3.4"
   },
   "devDependencies": {
-    "node-sass": "^4.13.1",
-    "parcel": "latest"
+    "@vue/component-compiler-utils": "^3.1.2",
+    "vue-template-compiler": "^2.6.11"
   }
 }
