@@ -1,6 +1,7 @@
-# vanilla-vuejs-dotcomshell
+# ibm-dotcom-vanilla-test
 
-Execution steps:
+#### Install
+`yarn` or `npm i`
 
-1- `yarn` or `npm i`
-2- `yarn start`
+#### Run
+`yarn start` or `npm start`
